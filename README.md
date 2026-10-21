@@ -23,6 +23,11 @@
   <a href="media/showcase.mp4">▶ Watch the 35 s video (with sound)</a>
 </p>
 
+
+https://github.com/user-attachments/assets/3c6588c2-62fe-4b74-b3ad-2eace2541f6d
+
+
+
 ## Why
 
 - DMs without the feed and reels.
