@@ -70,19 +70,41 @@ https://github.com/user-attachments/assets/3c6588c2-62fe-4b74-b3ad-2eace2541f6d
   </tr>
   <tr>
     <td align="center" valign="top"><img src="media/feature-drafts.webp" width="260" alt="Drafts kept per chat across tabs"><br><b>Drafts per chat</b><br>Kept across tabs and restarts; the tab gets a marker.</td>
-    <td align="center" valign="top"><img src="media/feature-settings.webp" width="260" alt="Settings panel with themes and updates"><br><b>Settings &amp; updates</b><br>Themes, popup position/duration, start with Windows, auto-updates that never interrupt unsent work.</td>
+    <td align="center" valign="top"><img src="media/feature-settings.webp" width="260" alt="Settings panel with themes and updates"><br><b>Settings &amp; updates</b><br>Themes, popup position/duration, start on login, auto-updates that never interrupt unsent work.</td>
   </tr>
 </table>
 
-Also: outline bubbles (cyan for yours) · reactions · Esc → tray · start with Windows · instant notifications.
+Also: outline bubbles (cyan for yours) · reactions · Esc → tray · start on login · instant notifications.
 
-## Install
+## Install (Windows)
 
-1. Download the installer from the [latest release](https://github.com/zuhuHix/moonbeam-ig-releases/releases/latest) and install it once.
+1. Download `MoonBeam_IG_<version>_x64-setup.exe` from the [latest release](https://github.com/zuhuHix/moonbeam-ig-releases/releases/latest) and install it once.
 2. Log in once. Instagram's own login page opens in a private window; only session cookies are kept, encrypted.
 3. Add your people from your inbox.
 
 From then on it updates itself. Windows 10/11 (WebView2).
+
+## Install (Linux)
+
+x86_64, tested on Linux Mint 22 Cinnamon (X11). Download one of these from the [latest release](https://github.com/zuhuHix/moonbeam-ig-releases/releases/latest):
+
+- **.deb** (Debian, Ubuntu, Mint): `MoonBeam_IG_<version>_amd64.deb`. Install it with apt, which pulls in the libraries it needs:
+  ```sh
+  sudo apt install ./MoonBeam_IG_<version>_amd64.deb
+  ```
+  Then start MoonBeam_IG from your app menu.
+- **AppImage** (any distro): `MoonBeam_IG_<version>_amd64.AppImage`. Keep it somewhere you can write to (e.g. `~/Applications`), make it executable and run it:
+  ```sh
+  chmod +x MoonBeam_IG_*_amd64.AppImage
+  ./MoonBeam_IG_*_amd64.AppImage
+  ```
+  On Ubuntu 22.04+ / Mint 21+ it needs FUSE 2: `sudo apt install libfuse2t64` (Ubuntu 24.04, Mint 22) or `libfuse2` (Ubuntu 22.04, Mint 21). It also needs webkit2gtk 4.1, GTK 3 and libayatana-appindicator3.
+
+Then log in once and add your people, as on Windows. Both versions update themselves (the .deb asks for your password to install an update).
+
+- **Keyring:** your login is kept encrypted with a key in your desktop's keyring, so a keyring must be running. GNOME, Cinnamon, MATE and XFCE ship gnome-keyring; on a minimal system run `sudo apt install gnome-keyring`.
+- **Tray:** Cinnamon, KDE, XFCE and MATE show the tray icon out of the box. On stock GNOME, enable the "AppIndicator and KStatusNotifierItem Support" extension (Ubuntu has it on by default).
+- **Uninstall:** `sudo apt remove moon-beam-ig` for the .deb, or delete the AppImage. Your data is in `~/.config/MoonBeam_IG`.
 
 > **Note:** Uses Instagram's unofficial web endpoints, which is against Instagram's ToS. Personal use only, at your own account risk.
 >
